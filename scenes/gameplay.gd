@@ -85,6 +85,9 @@ func next_phase():
 		7:
 			play_cutscene('feeding_children')
 		8:
+			player.cloud_height_1 = 710
+			player.cloud_height_2 = 1100
+			player.cloud_height_3 = 1300
 			play_cutscene('flying_away')
 			camera.set_weather('snow', 0)
 			level.spawn_chicks()

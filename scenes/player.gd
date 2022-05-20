@@ -25,10 +25,10 @@ var verti_speed = 6 #odl was 4
 var swing_cooldown = 30
 var swing_cooltimer = 0
 
-var cloud_height_3 = 1600
-var cloud_height_2 = 1200
-var cloud_height_1 = 800
-var treetop_height = 750
+var cloud_height_3 = 1400
+var cloud_height_2 = 1250
+var cloud_height_1 = 750
+var treetop_height = 700
 var branches_height = 500
 var ground_height = 300
 
@@ -96,7 +96,7 @@ func inputs():
 			height_change = verti_speed
 			set_animation('flapping')
 			swing_cooltimer = swing_cooldown
-			flap_sound.pitch_scale = float(90 + randi() % 20)/100
+			flap_sound.pitch_scale = float(130 + randi() % 50)/100
 			flap_sound.play(0)
 	else:
 		swing_cooltimer -= 1

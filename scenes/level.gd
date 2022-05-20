@@ -51,7 +51,7 @@ var noises = []
 
 var autumn = 0
 
-var chunk_size = 1000 * 5
+var chunk_size = 1000 * 7
 var tile_amount = 9 #there are 9 different ground tiles
 
 func ready():
@@ -174,10 +174,10 @@ func set_tilemap_autumn():
 	var pos = 0
 	numbers.shuffle()
 	
-	var tile_x = -tree_range/500
-	while tile_x < tree_range/500:
-		var tile_y = -tree_range/500
-		while tile_y < tree_range/500:
+	var tile_x = -tree_range/100
+	while tile_x < tree_range/100:
+		var tile_y = -tree_range/100
+		while tile_y < tree_range/100:
 			if tilemap.get_cell(tile_x, tile_y) != -1:
 				tilemap.set_cell(tile_x, tile_y, numbers[pos]+9)
 				pos += 1
@@ -477,40 +477,44 @@ func generate_new_chunk(x, y):
 		start_x += 1
 	
 	if spawn_stuff:
-		var tree_x = 0 + (x*tilemap.cell_size.x)
-		while tree_x < (x*tilemap.cell_size.x)+chunk_size:
-			var tree_y = 0 + (y*tilemap.cell_size.y)
-			tree_x += tree_step_size
-			while tree_y < (y*tilemap.cell_size.y)+chunk_size:
-				tree_y += tree_step_size
-				var noise_value = tree_noise.get_noise_2d(tree_x, tree_y)
-				
-				if noise_value >= tree_threshhold:
-					spawn_tree(tree_x, tree_y)
-				
-				if noise_value <= dirt_threshhold:
-					spawn_dirt_hill(tree_x, tree_y)
-				elif noise_value <= partner_threshhold:
-					spawn_partner(tree_x, tree_y)
-				elif noise_value <= deco_threshhold:
-					spawn_deco(tree_x, tree_y)
-		
-		var cloud_1_x = 0 + (x*tilemap.cell_size.x)
-		while cloud_1_x < (x*tilemap.cell_size.x)+chunk_size:
-			var cloud_1_y = 0 + (y*tilemap.cell_size.y)
-			cloud_1_x += cloud_step
-			while cloud_1_y < (y*tilemap.cell_size.y)+chunk_size:
-				cloud_1_y += cloud_step
-				var noise_value = cloud_noise.get_noise_2d(cloud_1_x, cloud_1_y)
-				if noise_value <= cloud_threshhold:
-					spawn_cloud(cloud_1_x, cloud_1_y, 1)
-		
-		var cloud_2_x = 0 + (x*tilemap.cell_size.x)
-		while cloud_2_x < (x*tilemap.cell_size.x)+chunk_size:
-			var cloud_2_y = 0 + (y*tilemap.cell_size.y)
-			cloud_2_x += cloud_2_step
-			while cloud_2_y < (y*tilemap.cell_size.y)+chunk_size:
-				cloud_2_y += cloud_2_step
-				var noise_value = cloud_2_noise.get_noise_2d(cloud_2_x, cloud_2_y)
-				if noise_value <= cloud_2_threshhold:
-					spawn_cloud(cloud_2_x, cloud_2_y, 1)
+		if randi() % 25 == 0:
+			spawn_lake((x*tilemap.cell_size.x), (y*tilemap.cell_size.y))
+			print('lake')
+		else:
+			var tree_x = 0 + (x*tilemap.cell_size.x)
+			while tree_x < (x*tilemap.cell_size.x)+chunk_size:
+				var tree_y = 0 + (y*tilemap.cell_size.y)
+				tree_x += tree_step_size
+				while tree_y < (y*tilemap.cell_size.y)+chunk_size:
+					tree_y += tree_step_size
+					var noise_value = tree_noise.get_noise_2d(tree_x, tree_y)
+					
+					if noise_value >= tree_threshhold:
+						spawn_tree(tree_x, tree_y)
+					
+					if noise_value <= dirt_threshhold:
+						spawn_dirt_hill(tree_x, tree_y)
+					elif noise_value <= partner_threshhold:
+						spawn_partner(tree_x, tree_y)
+					elif noise_value <= deco_threshhold:
+						spawn_deco(tree_x, tree_y)
+			
+			var cloud_1_x = 0 + (x*tilemap.cell_size.x)
+			while cloud_1_x < (x*tilemap.cell_size.x)+chunk_size:
+				var cloud_1_y = 0 + (y*tilemap.cell_size.y)
+				cloud_1_x += cloud_step
+				while cloud_1_y < (y*tilemap.cell_size.y)+chunk_size:
+					cloud_1_y += cloud_step
+					var noise_value = cloud_noise.get_noise_2d(cloud_1_x, cloud_1_y)
+					if noise_value <= cloud_threshhold:
+						spawn_cloud(cloud_1_x, cloud_1_y, 1)
+			
+			var cloud_2_x = 0 + (x*tilemap.cell_size.x)
+			while cloud_2_x < (x*tilemap.cell_size.x)+chunk_size:
+				var cloud_2_y = 0 + (y*tilemap.cell_size.y)
+				cloud_2_x += cloud_2_step
+				while cloud_2_y < (y*tilemap.cell_size.y)+chunk_size:
+					cloud_2_y += cloud_2_step
+					var noise_value = cloud_2_noise.get_noise_2d(cloud_2_x, cloud_2_y)
+					if noise_value <= cloud_2_threshhold:
+						spawn_cloud(cloud_2_x, cloud_2_y, 2)
