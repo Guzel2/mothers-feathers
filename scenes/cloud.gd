@@ -1,0 +1,3 @@
+extends AnimatedSprite
+
+var transparency

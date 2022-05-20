@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Flapping.wav-fa77ae8bb178d950016371b38a81affd.sample"
+
+[deps]
+
+source_file="res://sound/Flapping.wav"
+dest_files=[ "res://.import/Flapping.wav-fa77ae8bb178d950016371b38a81affd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

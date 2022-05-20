@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://sprites/dirt_hill/worm.png" type="Texture" id=1]
+[ext_resource path="res://sprites/trees/oak_branch.PNG" type="Texture" id=2]
+[ext_resource path="res://sprites/lake/fly_icon.png" type="Texture" id=3]
+[ext_resource path="res://scenes/hud.gd" type="Script" id=4]
+[ext_resource path="res://fonts/APRIFA__.TTF" type="DynamicFontData" id=6]
+[ext_resource path="res://scenes/partner_hud.gd" type="Script" id=7]
+[ext_resource path="res://sprites/bird/partner_icon.png" type="Texture" id=8]
+[ext_resource path="res://scenes/mission.gd" type="Script" id=9]
+
+[sub_resource type="DynamicFont" id=6]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 400, 400 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "branch",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 14 ) ],
+"loop": true,
+"name": "worm",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "fly",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "partner",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=13]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[node name="hud" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="ui" type="HBoxContainer" parent="."]
+anchor_left = 0.00078125
+anchor_right = 0.224219
+anchor_bottom = 0.00833333
+margin_left = -631.0
+margin_top = -320.0
+margin_right = -331.0
+margin_bottom = -240.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="count" type="Label" parent="ui"]
+margin_top = 22.0
+margin_right = 220.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 220, 40 )
+custom_colors/font_color = Color( 1, 0.447059, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "          5/10"
+autowrap = true
+
+[node name="partner_hud" type="AnimatedSprite" parent="ui"]
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 12 )
+animation = "partner"
+centered = false
+script = ExtResource( 7 )
+
+[node name="mission" type="Label" parent="ui"]
+margin_left = 224.0
+margin_top = 22.0
+margin_right = 546.0
+margin_bottom = 63.0
+custom_colors/font_color = Color( 1, 0.447059, 0, 1 )
+custom_fonts/font = SubResource( 13 )
+text = "#Mission_descriptor"
+script = ExtResource( 9 )

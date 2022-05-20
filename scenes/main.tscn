@@ -1,0 +1,171 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://scenes/gameplay.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/main.gd" type="Script" id=2]
+[ext_resource path="res://sprites/freewings_games/logo_animation.png" type="Texture" id=3]
+[ext_resource path="res://sprites/freewings_games/logo_screen.jpg" type="Texture" id=4]
+[ext_resource path="res://scenes/logo_animation.gd" type="Script" id=5]
+[ext_resource path="res://scenes/Titlescreen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/hud.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/pause_menu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/credits.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/control_menu.tscn" type="PackedScene" id=11]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1280, 0, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 2560, 0, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 3840, 0, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 5120, 0, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 6400, 0, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 720, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1280, 720, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 2560, 720, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 3840, 720, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 5120, 720, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 6400, 720, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 1440, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1280, 1440, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 2560, 1440, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 3840, 1440, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 5120, 1440, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 6400, 1440, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 2160, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1280, 2160, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 2560, 2160, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 3840, 2160, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 5120, 2160, 1280, 720 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 6400, 2160, 1280, 720 )
+
+[sub_resource type="SpriteFrames" id=25]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 24 ), SubResource( 24 ), SubResource( 24 ), SubResource( 24 ), SubResource( 24 ), SubResource( 24 ), SubResource( 24 ) ],
+"loop": true,
+"name": "animation",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "static_image",
+"speed": 1.0
+} ]
+
+[node name="main" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="logo_animation" type="AnimatedSprite" parent="."]
+z_index = 10
+frames = SubResource( 25 )
+animation = "animation"
+script = ExtResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="logo_animation"]
+autoplay = true
+
+[node name="gameplay" parent="." instance=ExtResource( 1 )]
+
+[node name="Titlescreen" parent="." instance=ExtResource( 7 )]
+
+[node name="control_menu" parent="." instance=ExtResource( 11 )]
+
+[node name="credits" parent="." instance=ExtResource( 10 )]
+
+[node name="hud" parent="." instance=ExtResource( 8 )]
+
+[node name="pause_menu" parent="." instance=ExtResource( 9 )]
+
+[connection signal="animation_finished" from="logo_animation" to="logo_animation" method="_on_logo_animation_animation_finished"]

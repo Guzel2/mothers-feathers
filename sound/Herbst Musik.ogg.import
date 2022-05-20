@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Herbst Musik.ogg-4a6d38ef889832ce55c4627fd8df3761.oggstr"
+
+[deps]
+
+source_file="res://sound/Herbst Musik.ogg"
+dest_files=[ "res://.import/Herbst Musik.ogg-4a6d38ef889832ce55c4627fd8df3761.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

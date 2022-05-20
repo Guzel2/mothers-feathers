@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://sprites/trees/pine_branch.PNG" type="Texture" id=1]
+[ext_resource path="res://sprites/trees/birch_branch.PNG" type="Texture" id=2]
+[ext_resource path="res://sprites/trees/oak_branch.PNG" type="Texture" id=3]
+[ext_resource path="res://scenes/branch.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 270.0
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 400, 400 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 400, 400 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "oak",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "pine",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ) ],
+"loop": true,
+"name": "birch",
+"speed": 5.0
+} ]
+
+[node name="branch" type="Area2D"]
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+animation = "pine"

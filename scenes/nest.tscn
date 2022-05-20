@@ -1,0 +1,74 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://sprites/bird/bird_nest_full.png" type="Texture" id=1]
+[ext_resource path="res://sprites/bird/bird_nest_empty.png" type="Texture" id=2]
+[ext_resource path="res://sprites/bird/bird_nest_chickens.png" type="Texture" id=3]
+[ext_resource path="res://sprites/bird/bird_nest_building.png" type="Texture" id=4]
+[ext_resource path="res://scenes/nest.gd" type="Script" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 335.006
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 1000, 1000 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1000, 0, 1000, 1000 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 2000, 0, 1000, 1000 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 1000, 1000 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 1000, 0, 1000, 1000 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 2000, 0, 1000, 1000 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "eggs",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "full",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "building",
+"speed": 5.0
+} ]
+
+[node name="nest" type="Area2D"]
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 5 )
+animation = "building"
