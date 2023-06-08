@@ -98,6 +98,8 @@ func inputs():
 			swing_cooltimer = swing_cooldown
 			flap_sound.pitch_scale = float(130 + randi() % 50)/100
 			flap_sound.play(0)
+			parent.parent.hud.exit()
+			visible = false
 	else:
 		swing_cooltimer -= 1
 
